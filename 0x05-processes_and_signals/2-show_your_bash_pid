@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#displays list of currently running process
+
+ps -afxu --forest | grep bash
