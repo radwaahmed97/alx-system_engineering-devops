@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# enables nginx to listen on port 80
+sudo rm /etc/nginx/nginx.conf
+sudo rm -rf /etc/nginx/
+sudo apt purge nginx
+sudo service haproxy restart
