@@ -32,6 +32,20 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-listen thelaura
-bind :80
-mode http
+
+frontend radwaahmed97-frontend
+        bind *:80
+        mode http
+        http-request redirect scheme https code 301 unless { ssl_fc }
+        http-request set-header X_Forwarded-Proto http
+        default_backend radwaahmed97-backend
+
+frontend radwaahmed97-frontend-https
+        bind *:443 ssl crt /etc/haproxy/certs/radwaahmed97.tech.pem
+        http-request set-header X-Forwarded-Proto https
+        default_backend radwaahmed97-backend
+
+backend radwaahmed97-backend
+        balance roundrobin
+        server 491171-web-01 34.229.71.81:80 check
+        server 491171-web-02 100.25.118.253:80 check
