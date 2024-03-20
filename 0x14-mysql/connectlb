@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# connect to lb
-
-eval $("ssh-agent")
-
-ssh-add ~/.ssh/school
-
-ssh ubuntu@35.168.3.185
