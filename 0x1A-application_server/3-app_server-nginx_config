@@ -8,7 +8,7 @@ server {
         #Customize HTTP response header
         add_header X-Served-By 491171-web-01;
 
-        # Serve /airbnb-onepage/ route on AirBnB_clone_v3
+        # Serve /airbnb-onepage/ route on AirBnB_clone_v2
         location = /airbnb-onepage/ {
             proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
         }
